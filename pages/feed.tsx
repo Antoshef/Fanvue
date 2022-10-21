@@ -10,8 +10,17 @@ type IPost = {
   body: string
 }
 
+type IComment = {
+  postId: number,
+    id: number,
+    name: string,
+    email: string,
+    body: string
+}
+
 const Feed: NextPage = () => {
-  const [posts, setPosts] = useState<IPost[]>([])
+  const [posts, setPosts] = useState<IPost[]>([]);
+  const [comments, setComments] = useState<IComment[]>([])
 
   useEffect(() => {
     const init = async () => {
@@ -22,14 +31,17 @@ const Feed: NextPage = () => {
 
   const getData = async () => {
     try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-      const data: IPost[] = await res.json()
-      setPosts(data)
+      const resPosts = await fetch("https://jsonplaceholder.typicode.com/posts")
+      const resComments = await fetch("https://jsonplaceholder.typicode.com/posts")
+      const postsData: IPost[] = await resPosts.json()
+      const commentData: IComment[] = await resComments.json()
+      setPosts(postsData)
+      setComments(commentData)
     } catch (err) {
       throw err
     }
   }
-  
+
   const {  } = useStyles
   return <div>
     <Grid>
