@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title></title>
+        <title>Fanvue - The page for creators</title>
       </Head>
       <main>
         <Box textAlign={"center"} my={8}>
