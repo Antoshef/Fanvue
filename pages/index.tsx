@@ -3,6 +3,7 @@ import Head from "next/head";
 import NextLink from "next/link";
 import { Paper, Box, Typography, Link, Grid } from "@mui/material";
 import Feed from "./feed";
+import Vault from "./vault";
 
 const Home: NextPage = () => {
   return (
@@ -60,8 +61,7 @@ const Home: NextPage = () => {
                   }}
                   elevation={3}
                 >
-                  <h2>Go to Vault page</h2>
-                  <p>And start the second task</p>
+                  <Vault />
                 </Paper>
               </Link>
             </NextLink>
